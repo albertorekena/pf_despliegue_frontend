@@ -1,0 +1,10 @@
+services:
+  app:
+    build: . 
+    container_name: frontend
+    volumes:
+      - ./app:/var/www/html/app
+      - ./config/prod/virtualhosts/films-alberto-despliegue.com.conf:/etc/apache2/sites-enabled/films-alberto-despliegue.com.conf
+      - ./app/public_html/config/urls.js:/var/www/html/app/public_html/config/urls.js
+    ports:
+      - "80:80"
